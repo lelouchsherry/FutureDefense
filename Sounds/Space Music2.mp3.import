@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Space Music2.mp3-9cf66e7ca5ba8ea179e51d2bd9c4d8a2.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Space Music2.mp3"
+dest_files=[ "res://.import/Space Music2.mp3-9cf66e7ca5ba8ea179e51d2bd9c4d8a2.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,311 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://tileset.tres" type="TileSet" id=1]
+[ext_resource path="res://main.gd" type="Script" id=2]
+[ext_resource path="res://Font/Xolonium-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://sprites/tower_placement_tileset.png" type="Texture" id=4]
+[ext_resource path="res://Sounds/FireLaserBolt.wav" type="AudioStream" id=5]
+[ext_resource path="res://Sounds/flopp med underleppa (flanger9).wav" type="AudioStream" id=6]
+[ext_resource path="res://Sounds/hjm-tesla_sound_shot.wav" type="AudioStream" id=7]
+[ext_resource path="res://Sounds/lose sound 1-2.wav" type="AudioStream" id=8]
+[ext_resource path="res://Sprites/Spaceship_normal.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Spaceship_disable.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Golden $.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Spaceship_hover.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/heart_on.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/heart_off.png" type="Texture" id=14]
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.423529, 0.423529, 0.423529, 1 )
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 48
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 3 )
+
+[sub_resource type="TileSet" id=6]
+0/name = "tower_placement_tileset.png 0"
+0/texture = ExtResource( 4 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 64, 64 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+1/name = "tower_placement_tileset.png 1"
+1/texture = ExtResource( 4 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 64, 0, 64, 64 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape_one_way = false
+1/shape_one_way_margin = 0.0
+1/shapes = [  ]
+1/z_index = 0
+
+[node name="main" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="tilemap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+format = 1
+tile_data = PoolIntArray( 65538, 4, 0, 65539, 4, 0, 65540, 4, 0, 65541, 4, 0, 65542, 4, 0, 65543, 4, 0, 65544, 4, 0, 65545, 4, 0, 65546, 4, 0, 65547, 4, 0, 65548, 4, 0, 65549, 6, 0, 65551, 6, 0, 131074, 1, 0, 131075, 1, 0, 131076, 1, 0, 131077, 1, 0, 131078, 1, 0, 131079, 1, 0, 131080, 1, 0, 131081, 1, 0, 131082, 1, 0, 131083, 1, 0, 131084, 1, 0, 131085, 1, 0, 131087, 1, 0, 196610, 1, 0, 196623, 1, 0, 262146, 1, 0, 262148, 3, 0, 262149, 4, 0, 262150, 4, 0, 262151, 4, 0, 262152, 4, 0, 262153, 4, 0, 262154, 4, 0, 262155, 4, 0, 262156, 4, 0, 262157, 4, 0, 262158, 4, 0, 262159, 1, 0, 327682, 1, 0, 327684, 1, 0, 327685, 1, 0, 327686, 1, 0, 327687, 1, 0, 327688, 1, 0, 327689, 1, 0, 327690, 1, 0, 327691, 1, 0, 327692, 1, 0, 327693, 1, 0, 327694, 1, 0, 327695, 1, 0, 393218, 1, 0, 393231, 1, 0, 458754, 1, 0, 458755, 4, 0, 458756, 4, 0, 458757, 4, 0, 458758, 4, 0, 458759, 4, 0, 458760, 4, 0, 458761, 4, 0, 458762, 4, 0, 458763, 4, 0, 458764, 4, 0, 458765, 6, 0, 458767, 1, 0, 524290, 1, 0, 524303, 1, 0, 589826, 1, 0, 589828, 536870913, 0, 589829, 536870913, 0, 589830, 536870913, 0, 589831, 536870913, 0, 589832, 536870913, 0, 589833, 536870913, 0, 589834, 536870913, 0, 589835, 536870913, 0, 589836, 536870913, 0, 589837, 536870913, 0, 589838, 536870913, 0, 589839, 1, 0, 655362, 1, 0, 655375, 1, 0, 720898, 1, 0, 720899, 4, 0, 720900, 4, 0, 720901, 4, 0, 720902, 4, 0, 720903, 4, 0, 720904, 4, 0, 720905, 4, 0, 720906, 4, 0, 720907, 4, 0, 720908, 4, 0, 720909, 6, 0, 720911, 1, 0 )
+
+[node name="nav" type="Navigation2D" parent="."]
+
+[node name="tilemap_nav" type="TileMap" parent="nav"]
+tile_set = ExtResource( 1 )
+bake_navigation = true
+format = 1
+tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 65536, 4, 0, 65537, 4, 0, 65538, 4, 0, 65539, 4, 0, 65540, 4, 0, 65541, 4, 0, 65542, 4, 0, 65543, 4, 0, 65544, 4, 0, 65545, 4, 0, 65546, 4, 0, 65547, 4, 0, 65548, 4, 0, 65549, 4, 0, 65550, 0, 0, 65551, 6, 0, 131086, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 196618, 0, 0, 196619, 0, 0, 196620, 0, 0, 196621, 0, 0, 196622, 0, 0, 262147, 0, 0, 262148, 3, 0, 262149, 4, 0, 262150, 4, 0, 262151, 4, 0, 262152, 4, 0, 262153, 4, 0, 262154, 4, 0, 262155, 4, 0, 262156, 4, 0, 262157, 4, 0, 262158, 4, 0, 327683, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393230, 0, 0, 458755, 4, 0, 458756, 4, 0, 458757, 4, 0, 458758, 4, 0, 458759, 4, 0, 458760, 4, 0, 458761, 4, 0, 458762, 4, 0, 458763, 4, 0, 458764, 4, 0, 458765, 6, 0, 458766, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 589827, 0, 0, 655361, 4, 0, 655363, 0, 0, 655364, 0, 0, 655365, 0, 0, 655366, 0, 0, 655367, 0, 0, 655368, 0, 0, 655369, 0, 0, 655370, 0, 0, 655371, 0, 0, 655372, 0, 0, 655373, 0, 0, 655374, 0, 0, 720896, 4, 0, 720897, 4, 0, 720898, 4, 0, 720899, 4, 0, 720900, 4, 0, 720901, 4, 0, 720902, 4, 0, 720903, 4, 0, 720904, 4, 0, 720905, 4, 0, 720906, 4, 0, 720907, 4, 0, 720908, 4, 0, 720909, 6, 0, 720910, 0, 0 )
+
+[node name="start_position" type="Position2D" parent="."]
+position = Vector2( 928, 64 )
+
+[node name="end_position" type="Position2D" parent="."]
+position = Vector2( 928, 760 )
+
+[node name="invander_timer" type="Timer" parent="."]
+autostart = true
+
+[node name="container" type="YSort" parent="."]
+
+[node name="user_interface" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="title" type="Label" parent="user_interface"]
+margin_left = 320.0
+margin_top = 1.0
+margin_right = 704.0
+margin_bottom = 65.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Defend the Future City"
+align = 1
+valign = 1
+
+[node name="hbox1" type="HBoxContainer" parent="user_interface/title"]
+margin_left = 464.0
+margin_top = 15.0
+margin_right = 738.0
+margin_bottom = 47.0
+
+[node name="lives_title" type="Label" parent="user_interface/title/hbox1"]
+margin_top = 3.0
+margin_right = 70.0
+margin_bottom = 28.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+text = " Lives:"
+align = 1
+valign = 1
+
+[node name="heart1" type="TextureRect" parent="user_interface/title/hbox1"]
+margin_left = 74.0
+margin_right = 104.0
+margin_bottom = 32.0
+texture = ExtResource( 13 )
+
+[node name="heart2" type="TextureRect" parent="user_interface/title/hbox1"]
+margin_left = 108.0
+margin_right = 138.0
+margin_bottom = 32.0
+texture = ExtResource( 13 )
+
+[node name="heart3" type="TextureRect" parent="user_interface/title/hbox1"]
+margin_left = 142.0
+margin_right = 172.0
+margin_bottom = 32.0
+texture = ExtResource( 13 )
+
+[node name="heart4" type="TextureRect" parent="user_interface/title/hbox1"]
+visible = false
+margin_left = 176.0
+margin_right = 206.0
+margin_bottom = 32.0
+texture = ExtResource( 14 )
+
+[node name="heart5" type="TextureRect" parent="user_interface/title/hbox1"]
+visible = false
+margin_left = 176.0
+margin_right = 206.0
+margin_bottom = 32.0
+texture = ExtResource( 14 )
+
+[node name="heart6" type="TextureRect" parent="user_interface/title/hbox1"]
+visible = false
+margin_left = 176.0
+margin_right = 206.0
+margin_bottom = 32.0
+texture = ExtResource( 14 )
+
+[node name="points" type="Label" parent="user_interface"]
+margin_left = 64.0
+margin_top = 1.0
+margin_right = 208.0
+margin_bottom = 65.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Scores: 100"
+align = 1
+valign = 1
+
+[node name="panel" type="Panel" parent="user_interface"]
+margin_top = 77.0
+margin_right = 128.0
+margin_bottom = 757.0
+custom_styles/panel = SubResource( 3 )
+
+[node name="level" type="Label" parent="user_interface"]
+margin_left = -24.0
+margin_top = 80.0
+margin_right = 127.0
+margin_bottom = 128.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Level: 00"
+align = 1
+valign = 1
+
+[node name="hbox1" type="HBoxContainer" parent="user_interface"]
+margin_top = 144.0
+margin_right = 128.0
+margin_bottom = 176.0
+
+[node name="earn" type="Label" parent="user_interface/hbox1"]
+margin_top = 3.0
+margin_right = 55.0
+margin_bottom = 28.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+text = " Earn"
+align = 1
+valign = 1
+
+[node name="gold_icon" type="TextureRect" parent="user_interface/hbox1"]
+margin_left = 59.0
+margin_right = 84.0
+margin_bottom = 32.0
+texture = ExtResource( 11 )
+
+[node name="gold" type="Label" parent="user_interface/hbox1"]
+margin_left = 88.0
+margin_top = 3.0
+margin_right = 108.0
+margin_bottom = 28.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+text = " 1"
+valign = 1
+
+[node name="spaceship" type="TextureButton" parent="user_interface"]
+margin_left = 32.0
+margin_top = 208.0
+margin_right = 96.0
+margin_bottom = 272.0
+texture_normal = ExtResource( 9 )
+texture_hover = ExtResource( 12 )
+texture_disabled = ExtResource( 10 )
+
+[node name="hbox2" type="HBoxContainer" parent="user_interface"]
+margin_top = 280.0
+margin_right = 127.0
+margin_bottom = 310.0
+
+[node name="cost_title" type="Label" parent="user_interface/hbox2"]
+margin_top = 2.0
+margin_right = 54.0
+margin_bottom = 27.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+text = " Cost"
+align = 1
+valign = 1
+
+[node name="gold_icon" type="TextureRect" parent="user_interface/hbox2"]
+margin_left = 58.0
+margin_right = 83.0
+margin_bottom = 30.0
+texture = ExtResource( 11 )
+
+[node name="cost" type="Label" parent="user_interface/hbox2"]
+margin_left = 87.0
+margin_top = 2.0
+margin_right = 107.0
+margin_bottom = 27.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+text = " 1"
+valign = 1
+
+[node name="next_wave" type="Label" parent="user_interface"]
+margin_top = 384.0
+margin_right = 128.0
+margin_bottom = 448.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Next Wave:"
+align = 1
+valign = 2
+
+[node name="next_wave_time" type="Label" parent="user_interface"]
+margin_top = 448.0
+margin_right = 128.0
+margin_bottom = 512.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "00"
+align = 1
+valign = 1
+
+[node name="start_next_wave" type="Button" parent="user_interface"]
+margin_left = 12.0
+margin_top = 520.0
+margin_right = 117.0
+margin_bottom = 568.0
+custom_fonts/font = SubResource( 2 )
+text = "Next Wave"
+
+[node name="tower_placement" type="TileMap" parent="."]
+tile_set = SubResource( 6 )
+cell_quadrant_size = 1
+format = 1
+
+[node name="fire_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -30.0
+
+[node name="click_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -10.0
+
+[node name="place_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -15.0
+
+[node name="dead_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+
+[connection signal="timeout" from="invander_timer" to="." method="_on_invander_timer_timeout"]
+[connection signal="pressed" from="user_interface/spaceship" to="." method="_on_spaceship_pressed"]
+[connection signal="pressed" from="user_interface/start_next_wave" to="." method="_on_start_next_wave_pressed"]

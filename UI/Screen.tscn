@@ -1,0 +1,340 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://UI/spaceship-ge2760b957_1920.jpg" type="Texture" id=1]
+[ext_resource path="res://Font/Xolonium-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Sounds/lose music 3-0.wav" type="AudioStream" id=3]
+[ext_resource path="res://UI/Screen.gd" type="Script" id=4]
+[ext_resource path="res://Sounds/flopp med underleppa (flanger9).wav" type="AudioStream" id=5]
+[ext_resource path="res://Sprites/tower_placement_tileset.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Spaceship_normal.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Spaceship_disable.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Golden $.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/heart_on.png" type="Texture" id=10]
+
+[sub_resource type="DynamicFont" id=1]
+size = 52
+font_data = ExtResource( 2 )
+
+[sub_resource type="Theme" id=4]
+
+[sub_resource type="DynamicFont" id=3]
+size = 28
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 2 )
+
+[node name="ScreenUI" type="CanvasLayer"]
+script = ExtResource( 4 )
+
+[node name="Background" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="Background"]
+anchor_right = 0.0195312
+anchor_bottom = 0.0263158
+margin_right = 1004.0
+margin_bottom = 740.0
+custom_constants/margin_top = 50
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Rows" type="VBoxContainer" parent="Background/MarginContainer"]
+margin_top = 50.0
+margin_right = 1023.0
+margin_bottom = 760.0
+custom_constants/separation = 60
+
+[node name="title" type="Label" parent="Background/MarginContainer/Rows"]
+margin_right = 1023.0
+margin_bottom = 64.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Defend the Future City"
+align = 1
+valign = 1
+
+[node name="game_over" type="Label" parent="Background/MarginContainer/Rows"]
+margin_top = 124.0
+margin_right = 1023.0
+margin_bottom = 188.0
+rect_pivot_offset = Vector2( -319, 7 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "GAME OVER"
+align = 1
+valign = 1
+
+[node name="result" type="CenterContainer" parent="Background/MarginContainer/Rows"]
+margin_top = 248.0
+margin_right = 1023.0
+margin_bottom = 322.0
+theme = SubResource( 4 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/MarginContainer/Rows/result"]
+margin_left = 511.0
+margin_right = 511.0
+margin_bottom = 74.0
+
+[node name="label1" type="Label" parent="Background/MarginContainer/Rows/result/VBoxContainer"]
+margin_bottom = 35.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 3 )
+align = 1
+valign = 1
+
+[node name="label2" type="Label" parent="Background/MarginContainer/Rows/result/VBoxContainer"]
+margin_top = 39.0
+margin_bottom = 74.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 3 )
+align = 1
+valign = 1
+
+[node name="Control" type="CenterContainer" parent="Background/MarginContainer/Rows"]
+margin_top = 382.0
+margin_right = 1023.0
+margin_bottom = 591.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/MarginContainer/Rows/Control"]
+margin_left = 378.0
+margin_right = 645.0
+margin_bottom = 209.0
+custom_constants/separation = 40
+
+[node name="Restart" type="Button" parent="Background/MarginContainer/Rows/Control/VBoxContainer"]
+margin_right = 267.0
+margin_bottom = 43.0
+custom_fonts/font = SubResource( 2 )
+text = " RESTART "
+
+[node name="Help" type="Button" parent="Background/MarginContainer/Rows/Control/VBoxContainer"]
+margin_top = 83.0
+margin_right = 267.0
+margin_bottom = 126.0
+custom_fonts/font = SubResource( 2 )
+text = " HOW TO PLAY "
+
+[node name="Quit" type="Button" parent="Background/MarginContainer/Rows/Control/VBoxContainer"]
+margin_top = 166.0
+margin_right = 267.0
+margin_bottom = 209.0
+custom_fonts/font = SubResource( 2 )
+text = "QUIT"
+
+[node name="dead_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[node name="click_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+
+[node name="result_box" type="ColorRect" parent="."]
+margin_left = 320.0
+margin_top = 296.0
+margin_right = 768.0
+margin_bottom = 384.0
+color = Color( 0, 0, 0, 0.556863 )
+
+[node name="level" type="Label" parent="."]
+margin_left = 384.0
+margin_top = 298.0
+margin_right = 685.0
+margin_bottom = 333.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Highest Levels: 5"
+align = 1
+valign = 1
+
+[node name="score" type="Label" parent="."]
+margin_left = 384.0
+margin_top = 337.0
+margin_right = 685.0
+margin_bottom = 372.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Highest Scores: 100"
+align = 1
+valign = 1
+
+[node name="Intro" type="TextureRect" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 1 )
+
+[node name="intro_background" type="ColorRect" parent="Intro"]
+margin_right = 1024.0
+margin_bottom = 760.0
+color = Color( 0, 0, 0, 0.776471 )
+
+[node name="MarginContainer" type="MarginContainer" parent="Intro"]
+anchor_right = 0.0195312
+anchor_bottom = 0.0263158
+margin_right = 1004.0
+margin_bottom = 740.0
+custom_constants/margin_top = 50
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Rows" type="VBoxContainer" parent="Intro/MarginContainer"]
+margin_top = 50.0
+margin_right = 1023.0
+margin_bottom = 760.0
+custom_constants/separation = 30
+
+[node name="title" type="Label" parent="Intro/MarginContainer/Rows"]
+margin_right = 1024.0
+margin_bottom = 64.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Defend the Future City"
+align = 1
+valign = 1
+
+[node name="help" type="Label" parent="Intro/MarginContainer/Rows"]
+margin_top = 94.0
+margin_right = 1024.0
+margin_bottom = 158.0
+rect_pivot_offset = Vector2( -319, 7 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "How to Play"
+align = 1
+valign = 1
+
+[node name="result" type="CenterContainer" parent="Intro/MarginContainer/Rows"]
+margin_top = 188.0
+margin_right = 1024.0
+margin_bottom = 616.0
+theme = SubResource( 4 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Intro/MarginContainer/Rows/result"]
+margin_left = 65.0
+margin_right = 958.0
+margin_bottom = 428.0
+custom_constants/separation = 20
+
+[node name="intro1" type="Label" parent="Intro/MarginContainer/Rows/result/VBoxContainer"]
+margin_right = 893.0
+margin_bottom = 73.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "1. Place spaceship along the path, if the tile allow you place
+the spaceship will show green box, otherwise red."
+valign = 1
+
+[node name="title" type="TextureRect" parent="Intro/MarginContainer/Rows/result/VBoxContainer/intro1"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -128.0
+margin_top = -40.0
+texture = ExtResource( 6 )
+
+[node name="spaceshipBtn" type="TextureRect" parent="Intro/MarginContainer/Rows/result/VBoxContainer/intro1"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -130.0
+margin_top = -40.0
+texture = ExtResource( 7 )
+
+[node name="intro2" type="Label" parent="Intro/MarginContainer/Rows/result/VBoxContainer"]
+margin_top = 93.0
+margin_right = 893.0
+margin_bottom = 166.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "2. When kill each invader you earn $1 gold, and 1 score, cost
+ to palce each spaceship equal to level."
+align = 1
+valign = 1
+
+[node name="TextureRect" type="TextureRect" parent="Intro/MarginContainer/Rows/result/VBoxContainer/intro2"]
+margin_top = 39.0
+margin_right = 126.0
+margin_bottom = 103.0
+texture = ExtResource( 9 )
+
+[node name="intro3" type="Label" parent="Intro/MarginContainer/Rows/result/VBoxContainer"]
+margin_top = 186.0
+margin_right = 893.0
+margin_bottom = 297.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "3. When you don't have enough gold to buy spaceship, the  
+button is disabled, and click next wave button start
+next level/wave immediately"
+align = 1
+valign = 1
+
+[node name="TextureRect" type="TextureRect" parent="Intro/MarginContainer/Rows/result/VBoxContainer/intro3"]
+margin_top = 39.0
+margin_right = 126.0
+margin_bottom = 103.0
+texture = ExtResource( 8 )
+
+[node name="intro4" type="Label" parent="Intro/MarginContainer/Rows/result/VBoxContainer"]
+margin_top = 317.0
+margin_right = 893.0
+margin_bottom = 428.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "4. You have total 3 lives at game start, when each invader   
+reachs end of path you lose 1 life, when you lose
+all lives, you lose the game."
+align = 1
+valign = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Intro/MarginContainer/Rows/result/VBoxContainer/intro4"]
+margin_left = -20.0
+margin_top = 40.0
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Intro/MarginContainer/Rows/result/VBoxContainer/intro4/HBoxContainer"]
+margin_right = 30.0
+margin_bottom = 30.0
+texture = ExtResource( 10 )
+
+[node name="TextureRect2" type="TextureRect" parent="Intro/MarginContainer/Rows/result/VBoxContainer/intro4/HBoxContainer"]
+margin_left = 34.0
+margin_right = 64.0
+margin_bottom = 30.0
+texture = ExtResource( 10 )
+
+[node name="TextureRect3" type="TextureRect" parent="Intro/MarginContainer/Rows/result/VBoxContainer/intro4/HBoxContainer"]
+margin_left = 68.0
+margin_right = 98.0
+margin_bottom = 30.0
+texture = ExtResource( 10 )
+
+[node name="Control" type="CenterContainer" parent="Intro/MarginContainer/Rows"]
+margin_top = 646.0
+margin_right = 1024.0
+margin_bottom = 689.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Intro/MarginContainer/Rows/Control"]
+margin_left = 461.0
+margin_right = 563.0
+margin_bottom = 43.0
+custom_constants/separation = 40
+
+[node name="Back" type="Button" parent="Intro/MarginContainer/Rows/Control/VBoxContainer"]
+margin_right = 102.0
+margin_bottom = 43.0
+custom_fonts/font = SubResource( 2 )
+text = "BACK"
+
+[connection signal="pressed" from="Background/MarginContainer/Rows/Control/VBoxContainer/Restart" to="." method="_on_Restart_pressed"]
+[connection signal="pressed" from="Background/MarginContainer/Rows/Control/VBoxContainer/Help" to="." method="_on_Help_pressed"]
+[connection signal="pressed" from="Background/MarginContainer/Rows/Control/VBoxContainer/Quit" to="." method="_on_Quit_pressed"]
+[connection signal="pressed" from="Intro/MarginContainer/Rows/Control/VBoxContainer/Back" to="." method="_on_Back_pressed"]
